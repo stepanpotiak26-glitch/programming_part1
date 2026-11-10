@@ -1,33 +1,47 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
-// Funktsiya  z tablytsi 
-double f15(double x) {
-    return fabs(cos(x) * cos(x) - 0.51) * sin(3.0 * x - 4.0) - 4.44;
+
+// Function f_13(x) to compute 'a'
+double f13(double x) {
+    double sin_x = sin(x);
+    double cos_x = cos(x);
+    return pow(sin_x, 2) * pow(cos_x, 3) - sin_x + 5.2;
 }
+
+// Function f_14(x) to compute 'b'
+double f14(double x) {
+    return 2.0 * sin(x) * sin(2.0 * x - 1.5) * cos(2.0 * x + 1.5) - 6.0;
+}
+
 int main() {
-    int i = 15; 
+    const int i = 8; // Option / Variant 8
+
     double a = 0.0;
-    double b = 1.0; // Pochatkove znachennya dlya dobutku
+    double b = 1.0;
 
-    // Obchyslennya sumy a: vid k = i do i + 5
-    for (int k = i; k <= i + 5; k++) {
-        a += f15(static_cast<double>(k));
-    }
+    // Calculate sum 'a' (k from 8 to 13) using do-while
+    int k_a = i;
+    do {
+        a += f13(k_a);
+        k_a++;
+    } while (k_a <= i + 5);
 
-    // Obchyslennya dobutku b: vid k = i do i + 8
-    for (int k = i; k <= i + 8; k++) {
-        b *= f15(static_cast<double>(k));
-    }
+    // Calculate product 'b' (k from 8 to 16) using do-while
+    int k_b = i;
+    do {
+        b *= f14(k_b);
+        k_b++;
+    } while (k_b <= i + 8);
 
-    // Obchyslennya z = ctg(2a) - b (variant 15)
-    // ctg(x) predstavleno yak cos(x) / sin(x)
-    double angle = 2.0 * a;
-    double ctg_2a = cos(angle) / sin(angle);
-    double z = ctg_2a - b;
+    // Calculate z = a^2 + 3b
+    double z = pow(a, 2) + 3.0 * b;
 
-    cout << "Variant: " << i << endl;
+    // Output results
+    cout << fixed << setprecision(6);
+    cout << "Variant (i): " << i << endl;
     cout << "a = " << a << endl;
     cout << "b = " << b << endl;
     cout << "z = " << z << endl;
