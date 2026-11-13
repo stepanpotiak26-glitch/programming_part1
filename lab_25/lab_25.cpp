@@ -5,13 +5,13 @@
 
 using namespace std;
 
-// ==================== 1. Poperednie ogoloshennia (prototypy) ====================
+//  Poperednie ogoloshennia (prototypy)
 template <typename T> T Sqr(T x);
 template <typename T> vector<T> Sqr(const vector<T>& v);
 template <typename K, typename V> map<K, V> Sqr(const map<K, V>& m);
 template <typename First, typename Second> pair<First, Second> Sqr(const pair<First, Second>& p);
 
-// ==================== 2. Oznachennia shablonnykh funktsii ====================
+//  Oznachennia shablonnykh funktsii 
 
 // Bazovyi Sqr dlia chysel
 template <typename T>
@@ -46,7 +46,7 @@ pair<First, Second> Sqr(const pair<First, Second>& p) {
     return {Sqr(p.first), Sqr(p.second)};
 }
 
-// ==================== 3. Perevirochna funktsiia main z laboratornoi ====================
+//  Perevirochna funktsiia main z laboratornoi
 int main() {
     // Test 1: vector
     vector<int> v = {1, 2, 3};
